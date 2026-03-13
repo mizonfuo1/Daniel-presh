@@ -33,7 +33,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
       * {
@@ -70,12 +70,11 @@
       .nav-links {
         display: flex;
         gap: 24px;
-        background:;
       }
       
       .nav-links a {
         text-decoration: none;
-        color: #6b6f76s;
+        color: #6b6f76;
         font-weight: 500;
         font-size: 14px;
         transition: color 0.3s;
@@ -87,11 +86,12 @@
       
       .nav-buttons {
         display: flex;
-        gap: 12px;
+        gap: 10px;
+        align-items: center;
       }
       
       .btn {
-        padding: 12px 20px;
+        padding: 10px 18px;
         border-radius: 6px;
         font-weight: 600;
         font-size: 14px;
@@ -105,12 +105,13 @@
       
       .btn-outline {
         background: transparent;
-        border: 1px solid #e9e9e9;
+        border: 1px solid rgba(255,255,255,0.25);
+        color: #f7f9fa;
       }
       
       .btn-outline:hover {
-        background: #f5f7fa;
-        color: #061121;
+        background: rgba(255,255,255,0.08);
+        color: #fff;
       }
       
       .btn-primary {
@@ -120,6 +121,33 @@
       
       .btn-primary:hover {
         background: #0046d9;
+        color: #fff;
+      }
+
+      .btn-register {
+        background: linear-gradient(135deg, #0577da, #0046d9);
+        color: #fff;
+        border: none;
+        box-shadow: 0 2px 8px rgba(5,119,218,0.35);
+      }
+
+      .btn-register:hover {
+        background: linear-gradient(135deg, #0046d9, #0033bb);
+        color: #fff;
+        box-shadow: 0 4px 14px rgba(5,119,218,0.5);
+        transform: translateY(-1px);
+      }
+
+      .btn-login {
+        background: transparent;
+        border: 1px solid rgba(255,255,255,0.3);
+        color: #f0f4ff;
+      }
+
+      .btn-login:hover {
+        background: rgba(255,255,255,0.08);
+        border-color: rgba(255,255,255,0.5);
+        color: #fff;
       }
       
       a {
@@ -127,15 +155,18 @@
       }
 
       a:hover {
-        color: #061121;
+        color: #fff;
       }
 
       .mobile-menu-btn {
         display: none;
         background: none;
         border: none;
-        font-size: 24px;
+        font-size: 26px;
         cursor: pointer;
+        color: #ffffff;
+        padding: 4px 8px;
+        line-height: 1;
       }
       
       /* Hero Section */
@@ -752,12 +783,17 @@
         
         .nav-links a {
           padding: 10px 0;
-          border-bottom: 1px solid #f0f0f0;
-          color: #a7a9acs;
+          border-bottom: 1px solid #1a2a4a;
+          color: #a7a9ac;
         }
         
         .mobile-menu-btn {
           display: block;
+        }
+
+        /* On mobile, hide the livechat button to save space */
+        .btn-livechat-hide {
+          display: none;
         }
         
         .hero-title {
@@ -787,6 +823,16 @@
         .products-list {
           max-width: 100%;
         }
+
+        /* Stack auth buttons on mobile */
+        .nav-buttons {
+          gap: 6px;
+        }
+
+        .nav-buttons .btn {
+          padding: 8px 12px;
+          font-size: 13px;
+        }
       }
       
       @media (max-width: 480px) {
@@ -809,6 +855,42 @@
         
         .hero-image {
           height: 300px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .mobile-quick-bar {
+          display: flex;
+          gap: 10px;
+          padding: 10px 16px;
+          background: #061121;
+          border-bottom: 1px solid #1a2a4a;
+          position: sticky;
+          top: 61px;
+          z-index: 999;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .mqb-btn {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          white-space: nowrap;
+          background: #0577da;
+          color: #fff !important;
+          text-decoration: none;
+          font-size: 13px;
+          font-weight: 600;
+          padding: 8px 14px;
+          border-radius: 20px;
+          flex-shrink: 0;
+          transition: background 0.2s;
+        }
+
+        .mqb-btn:hover {
+          background: #0046d9;
+          color: #fff !important;
         }
       }
     </style>
@@ -835,11 +917,16 @@
         <a href="#stats">Stats</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#contact">Contact</a>
+        <a href="https://dashboard.support-channel.org/login">Login</a>
+        <a href="https://dashboard.support-channel.org/register">Register</a>
       </div>
+
       
+      <!-- ── Auth + Live Chat buttons ── -->
       <div class="nav-buttons">
-        <a href="#contact" class="btn btn-outline">contact</a>
-        <a href="https://direct.lc.chat/19562999/" class="btn btn-primary">livechat</a>
+        <a href="https://dashboard.support-channel.org/login" class="btn btn-login">Login</a>
+        <a href="https://dashboard.support-channel.org/register" class="btn btn-register">Register</a>
+        <a href="https://direct.lc.chat/19562999/" class="btn btn-primary btn-livechat-hide">Live Chat</a>
       </div>
     </nav>
     
@@ -851,7 +938,7 @@
         <p class="hero-subtitle">Crypto.com is the easiest place to buy and sell cryptocurrency. Sign up and get started today.</p>
         
         <div class="hero-buttons">
-          <a href="https://direct.lc.chat/19562999/" class="btn btn-primary" style="padding: 12px 32px;">Get started</a>
+          <a href="https://dashboard.support-channel.org/register" class="btn btn-primary" style="padding: 12px 32px;">Get started</a>
           <a href="#about" class="btn btn-outline">
             <svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
               <path d="M6 12L10 8L6 4" stroke="#0052FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
